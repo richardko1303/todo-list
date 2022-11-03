@@ -26,12 +26,12 @@ fs-small {
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
+    min-height: 100vh;
 }
 .content {
     background-color: white;
     width: 60%;
-    min-height: 50%;
+    min-height: 400px;
     padding: 30px;
 
     border-radius: 5px;
@@ -103,4 +103,16 @@ fs-small {
 .delete:hover {
     cursor: pointer;
     background-color: #f85454;
+}
+
+@media (max-width: 1250px) {
+    .content {
+        min-height: 500px;
+        width: 100%;
+        margin: 0;
+    }
+    .post {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
 }
