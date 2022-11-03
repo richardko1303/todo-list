@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="content">
+            <h1 id="title" class="fw-bold">To-Do List</h1>
+
+            <input class="input" id="todo-text" type="text">
+            <button onclick="post()" class="post">Add</button>
+
+            <div class="items">
+                
+                <!-- Sem pojdu tasky -->
+
+            </div>
+
+        </div> 
+    </div>
+
+</body>
+
+<script>
+    let num = 0
+    function post() {
+        const text = document.getElementById("todo-text").value;
+
+        let itemDiv = document.createElement("div");
+        itemDiv.className = "item";
+        itemDiv.id = num+1;
+
+        let todoText = document.createElement("p");
+        todoText.id = "item";
+        todoText.innerHTML = text;
+
+        let delBtn = document.createElement("button");
+        delBtn.setAttribute("onclick", 'del(' + num + ')');
+        delBtn.className = "delete";
+        delBtn.textContent = "Delete"
+
+        itemDiv.append(todoText);
+        itemDiv.append(delBtn);
+
+        document.querySelector(".items").append(itemDiv);
+
+        num = num+1;
+
+        document.getElementById("todo-text").value = '';
+    }
+
+    function del(id) {
+        const div = document.getElementById(id + 1);
+        div.parentNode.removeChild(div)
+    }
+</script>
+
+</html>
